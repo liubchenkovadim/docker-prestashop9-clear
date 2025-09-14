@@ -18,6 +18,8 @@ RUN apt-get update && apt-get install -y \
     gd \
     zip \
     intl
+# Збільшуємо обмеження завантаження
+RUN echo "upload_max_filesize = 128M\npost_max_size = 128M" > /usr/local/etc/php/conf.d/uploads.ini
 
 # Вмикаємо Apache mod_rewrite
 RUN a2enmod rewrite
